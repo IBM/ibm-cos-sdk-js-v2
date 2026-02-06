@@ -1,0 +1,6 @@
+{
+  "service": "cloud-object-storage",
+  "production_code": "no",
+  "security_sensitive": "no",
+  "ip_sensitive": "no"
+}
