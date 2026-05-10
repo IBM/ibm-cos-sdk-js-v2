@@ -1,0 +1,10 @@
+export { EC2ProtocolClient } from "@ibm-cos/aws-protocoltests-ec2-schema";
+export { JsonProtocolClient } from "@ibm-cos/aws-protocoltests-json-schema";
+export { JSONRPC10Client } from "@ibm-cos/aws-protocoltests-json-10-schema";
+export { MachineLearningClient } from "@ibm-cos/aws-protocoltests-json-schema-machinelearning";
+export { QueryProtocolClient } from "@ibm-cos/aws-protocoltests-query-schema";
+export { RestJsonProtocolClient } from "@ibm-cos/aws-protocoltests-restjson-schema";
+export { GlacierClient } from "@ibm-cos/aws-protocoltests-restjson-schema-glacier";
+export { APIGatewayClient } from "@ibm-cos/aws-protocoltests-restjson-schema-apigateway";
+export { RestXmlProtocolClient } from "@ibm-cos/aws-protocoltests-restxml-schema";
+export { RpcV2ProtocolClient } from "@ibm-cos/aws-protocoltests-smithy-rpcv2-cbor-schema";

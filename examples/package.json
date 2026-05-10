@@ -1,0 +1,24 @@
+{
+  "name": "ibm-cos-sdk-js-v2-examples",
+  "version": "1.0.0",
+  "description": "IBM Cloud Object Storage SDK v2 JavaScript Examples",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ibm",
+    "cloud",
+    "object",
+    "storage",
+    "cos",
+    "s3",
+    "examples"
+  ],
+  "author": "",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "ibm-cos-sdk-v2": "file:../clients/client-s3/ibm-cos-sdk-v2-0.0.1.tgz"
+  }
+}

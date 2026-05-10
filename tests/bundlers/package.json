@@ -1,0 +1,8 @@
+{
+  "dependencies": {},
+  "type": "module",
+  "author": {
+    "name": "IBM COS SDK for JavaScript",
+    "url": "https://github.com/IBM/ibm-cos-sdk-js-v2"
+  }
+}

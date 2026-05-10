@@ -1,0 +1,42 @@
+{
+  "name": "@ibm-cos/middleware-signing-ibm-iam",
+  "version": "0.0.1",
+  "description": "IBM IAM signing middleware for IBM COS SDK",
+  "main": "./dist-cjs/index.js",
+  "module": "./dist-es/index.js",
+  "types": "./dist-types/index.d.ts",
+  "scripts": {
+    "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
+    "build:cjs": "node ../../scripts/compilation/inline middleware-signing-ibm-iam",
+    "build:es": "tsc -p tsconfig.es.json",
+    "build:types": "tsc -p tsconfig.types.json",
+    "clean": "premove dist-cjs dist-es dist-types tsconfig.cjs.tsbuildinfo tsconfig.es.tsbuildinfo tsconfig.types.tsbuildinfo"
+  },
+  "dependencies": {
+    "@ibm-cos/credential-provider-iam": "workspace:*",
+    "@ibm-cos/signature-ibm-iam": "workspace:*",
+    "@ibm-cos/types": "workspace:*",
+    "@ibm-cos/types-ibm": "workspace:*",
+    "@smithy/protocol-http": "^5.3.8",
+    "@smithy/types": "^4.12.0",
+    "tslib": "^2.6.2"
+  },
+  "devDependencies": {
+    "@tsconfig/recommended": "1.0.1",
+    "@types/node": "^20.14.8",
+    "concurrently": "7.0.0",
+    "premove": "4.0.0",
+    "typescript": "~5.8.3"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "files": [
+    "dist-*/**"
+  ],
+  "license": "Apache-2.0",
+  "author": {
+    "name": "IBM COS SDK for JavaScript",
+    "url": "https://github.com/IBM/ibm-cos-sdk-js-v2"
+  }
+}

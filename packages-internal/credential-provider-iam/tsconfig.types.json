@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "lib": [],
+        "outDir": "dist-types",
+        "rootDir": "src",
+        "noCheck": true
+    },
+    "extends": "../../tsconfig.types.json",
+    "include": [
+        "src/"
+    ]
+}

@@ -1,0 +1,7 @@
+{
+  "author": {
+    "name": "IBM COS SDK for JavaScript",
+    "url": "https://github.com/ibm/ibm-cos-sdk-js-v2"
+  },
+  "license": "Apache-2.0"
+}

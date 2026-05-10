@@ -1,0 +1,43 @@
+{
+  "extends": "@tsconfig/node20/tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "downlevelIteration": true,
+    "incremental": true,
+    "importHelpers": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noEmitHelpers": false,
+    "noFallthroughCasesInSwitch": true,
+    "paths": {
+      "@ibm-cos/*": [
+        "packages/*/",
+        "packages-internal/*/"
+      ],
+      "@ibm-cos/client-*": [
+        "clients/client-*/"
+      ],
+      "@ibm-cos/lib-*": [
+        "lib/*"
+      ]
+    },
+    "preserveConstEnums": true,
+    "removeComments": true,
+    "resolveJsonModule": true,
+    "useUnknownInCatchVariables": false,
+    "experimentalDecorators": true,
+    "jsx": "react",
+    "jsxFactory": "JSX.createElement",
+    "jsxFragmentFactory": "JSX.Fragment"
+  },
+  "include": [
+    "clients/",
+    "packages/",
+    "lib/"
+  ],
+  "exclude": [
+    "node_modules/",
+    "**/*.spec.ts",
+    "vitest.*.ts"
+  ]
+}

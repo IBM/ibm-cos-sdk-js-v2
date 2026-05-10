@@ -1,0 +1,70 @@
+{
+  "name": "@ibm-cos/credential-provider-http",
+  "version": "0.0.1",
+  "description": "AWS credential provider for containers and HTTP sources",
+  "main": "./dist-cjs/index.js",
+  "module": "./dist-es/index.js",
+  "browser": "./dist-es/index.browser.js",
+  "react-native": "./dist-es/index.browser.js",
+  "scripts": {
+    "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
+    "build:cjs": "node ../../scripts/compilation/inline credential-provider-http",
+    "build:es": "tsc -p tsconfig.es.json",
+    "build:include:deps": "yarn g:turbo run build -F=\"$npm_package_name\"",
+    "build:types": "tsc -p tsconfig.types.json",
+    "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+    "clean": "premove dist-cjs dist-es dist-types tsconfig.cjs.tsbuildinfo tsconfig.es.tsbuildinfo tsconfig.types.tsbuildinfo",
+    "test": "yarn g:vitest run",
+    "test:watch": "yarn g:vitest watch"
+  },
+  "keywords": [
+    "aws",
+    "credentials"
+  ],
+  "sideEffects": false,
+  "author": {
+    "name": "IBM COS SDK for JavaScript",
+    "url": "https://github.com/IBM/ibm-cos-sdk-js-v2"
+  },
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@ibm-cos/core": "workspace:*",
+    "@ibm-cos/types": "workspace:*",
+    "@smithy/fetch-http-handler": "^5.3.9",
+    "@smithy/node-http-handler": "^4.4.8",
+    "@smithy/property-provider": "^4.2.8",
+    "@smithy/protocol-http": "^5.3.8",
+    "@smithy/smithy-client": "^4.10.11",
+    "@smithy/types": "^4.12.0",
+    "@smithy/util-stream": "^4.5.10",
+    "tslib": "^2.6.2"
+  },
+  "devDependencies": {
+    "@tsconfig/recommended": "1.0.1",
+    "@types/node": "^20.14.8",
+    "concurrently": "7.0.0",
+    "downlevel-dts": "0.10.1",
+    "premove": "4.0.0",
+    "typescript": "~5.8.3"
+  },
+  "types": "./dist-types/index.d.ts",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "typesVersions": {
+    "<4.0": {
+      "dist-types/*": [
+        "dist-types/ts3.4/*"
+      ]
+    }
+  },
+  "files": [
+    "dist-*/**"
+  ],
+  "homepage": "https://github.com/ibm/ibm-cos-sdk-js-v2",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ibm/ibm-cos-sdk-js-v2.git",
+    "directory": "packages/credential-provider-http"
+  }
+}

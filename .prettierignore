@@ -1,0 +1,10 @@
+CHANGELOG.md
+**/*/CHANGELOG.md
+.github/*
+**/*.hbs
+**/*/report.md
+clients/**/src
+clients/**/README.md
+private/**
+packages/nested-clients/src/submodules/*/endpoint/ruleset.ts
+**/*.java

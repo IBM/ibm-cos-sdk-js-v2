@@ -1,0 +1,238 @@
+import { getE2eTestResources } from "@ibm-cos/aws-util-test/src";
+import { ChecksumAlgorithm, S3 } from "ibm-cos-sdk-v2";
+import { Upload } from "@ibm-cos/lib-storage";
+import { randomBytes } from "crypto";
+import fs from "node:fs";
+import { Readable } from "stream";
+import { afterAll, beforeAll, describe, expect, test as it } from "vitest";
+
+describe("@ibm-cos/lib-storage", () => {
+  describe.each([undefined, "WHEN_REQUIRED", "WHEN_SUPPORTED"])(
+    "requestChecksumCalculation: %s",
+    (requestChecksumCalculation) => {
+      describe.each([
+        undefined,
+        ChecksumAlgorithm.SHA1,
+        ChecksumAlgorithm.SHA256,
+        ChecksumAlgorithm.CRC32,
+        ChecksumAlgorithm.CRC32C,
+      ])("ChecksumAlgorithm: %s", (ChecksumAlgorithm) => {
+        let Key: string;
+        let client: S3;
+        let data: Uint8Array;
+        let dataString: string;
+        let Bucket: string;
+        let region: string;
+
+        beforeAll(async () => {
+          try {
+            const e2eTestResourcesEnv = await getE2eTestResources();
+            Object.assign(process.env, e2eTestResourcesEnv);
+
+            region = process?.env?.AWS_SMOKE_TEST_REGION as string;
+            Bucket = process?.env?.AWS_SMOKE_TEST_BUCKET as string;
+
+            Key = ``;
+            data = randomBytes(20_240_000);
+            dataString = data.toString();
+
+            // @ts-expect-error: Types of property 'requestChecksumCalculation' are incompatible
+            client = new S3({
+              region,
+              requestChecksumCalculation,
+            });
+            Key = `multi-part-file-${requestChecksumCalculation}-${ChecksumAlgorithm}-${Date.now()}`;
+          } catch (error) {
+            console.warn("Failed to set up test resources:", error);
+          }
+        }, 45_000);
+
+        afterAll(async () => {
+          if (client && Bucket && Key) {
+            try {
+              await client.deleteObject({ Bucket, Key });
+            } catch (error) {
+              console.warn("Failed to clean up test object:", error);
+            }
+          }
+        }, 10_000);
+
+        it("should upload in parts for input type bytes", async () => {
+          const s3Upload = new Upload({
+            client,
+            params: { Bucket, Key, Body: data, ChecksumAlgorithm },
+          });
+          await s3Upload.done();
+
+          const object = await client.getObject({ Bucket, Key });
+          expect(await object.Body?.transformToString()).toEqual(dataString);
+        });
+
+        it("should upload in parts for input type string", async () => {
+          const s3Upload = new Upload({
+            client,
+            params: { Bucket, Key, Body: dataString, ChecksumAlgorithm },
+          });
+          await s3Upload.done();
+
+          const object = await client.getObject({ Bucket, Key });
+          expect(await object.Body?.transformToString()).toEqual(dataString);
+        });
+
+        it("should upload in parts for input type Readable", async () => {
+          const s3Upload = new Upload({
+            client,
+            params: { Bucket, Key, Body: Readable.from(data), ChecksumAlgorithm },
+          });
+          await s3Upload.done();
+
+          const object = await client.getObject({ Bucket, Key });
+          expect(await object.Body?.transformToString()).toEqual(dataString);
+        });
+
+        it("should call AbortMultipartUpload if unable to complete a multipart upload.", async () => {
+          class MockFailureS3 extends S3 {
+            public counter = 0;
+            async send(command: any, ...rest: any[]) {
+              if (command?.constructor?.name === "UploadPartCommand" && this.counter++ % 3 === 0) {
+                throw new Error("simulated upload part error");
+              }
+              return super.send(command, ...rest);
+            }
+          }
+
+          const client = new MockFailureS3({ region });
+
+          const requestLog = [] as string[];
+
+          client.middlewareStack.add(
+            (next, context) => async (args) => {
+              const result = await next(args);
+              requestLog.push(
+                [context.clientName, context.commandName, result.output.$metadata.httpStatusCode].join(" ")
+              );
+              return result;
+            },
+            {
+              name: "E2eRequestLog",
+              step: "build",
+              override: true,
+            }
+          );
+
+          const s3Upload = new Upload({
+            client,
+            params: { Bucket, Key, Body: data, ChecksumAlgorithm },
+          });
+          // eslint-disable-next-line @typescript-eslint/no-unused-vars
+          await s3Upload.done().catch((ignored) => {});
+
+          const uploadStatus = await client
+            .listParts({ Bucket, Key, UploadId: s3Upload.uploadId })
+            .then((listParts) => listParts.$metadata.httpStatusCode)
+            .catch((err) => err.toString());
+
+          expect(uploadStatus).toMatch(/NoSuchUpload:(.*?)aborted or completed\./);
+          expect(requestLog).toEqual([
+            "S3Client CreateMultipartUploadCommand 200",
+            "S3Client UploadPartCommand 200",
+            "S3Client UploadPartCommand 200",
+            "S3Client AbortMultipartUploadCommand 204",
+          ]);
+        });
+
+        it("should validate part size constraints", () => {
+          const upload = new Upload({
+            client,
+            params: {
+              Bucket,
+              Key: `validation-test-${Date.now()}`,
+              Body: Buffer.alloc(1024 * 1024 * 10),
+            },
+          });
+
+          const invalidPart = {
+            partNumber: 2,
+            data: Buffer.alloc(1024 * 1024 * 3), // 3MB - too small for non-final part
+            lastPart: false,
+          };
+
+          expect(() => {
+            (upload as any).__validateUploadPart(invalidPart);
+          }).toThrow(/The byte size for part number 2, size \d+ does not match expected size \d+/);
+        });
+
+        it("should validate part count constraints", async () => {
+          const upload = new Upload({
+            client,
+            params: {
+              Bucket,
+              Key: `validation-test-${Date.now()}`,
+              Body: Buffer.alloc(1024 * 1024 * 10),
+            },
+          });
+
+          (upload as any).uploadedParts = [{ PartNumber: 1, ETag: "etag1" }];
+          (upload as any).isMultiPart = true;
+
+          await expect(upload.done()).rejects.toThrow(/Expected \d+ part\(s\) but uploaded \d+ part\(s\)\./);
+        });
+      });
+    }
+  );
+
+  describe("inferring the byte length of the input", () => {
+    beforeAll(async () => {
+      const e2eTestResourcesEnv = await getE2eTestResources();
+      Object.assign(process.env, e2eTestResourcesEnv);
+    });
+
+    it("should throw an informative error about the correct override if the SDK infers the byte count incorrectly", async () => {
+      const s3 = new S3({
+        region: process.env.AWS_SMOKE_TEST_REGION,
+      });
+
+      const pseudoFileReadStream = fs.createReadStream("/dev/urandom", { end: 6 * 1024 * 1024 });
+
+      const upload = new Upload({
+        client: s3,
+        params: {
+          Key: `/dev/urandom`,
+          Bucket: process.env.AWS_SMOKE_TEST_BUCKET,
+          Body: pseudoFileReadStream,
+        },
+      });
+
+      const error = await upload.done().catch((e) => e);
+
+      expect(error).toBeInstanceOf(Error);
+      expect(error.message).toEqual(`Expected 0 part(s) but uploaded 2 part(s).
+The expected part count is based on the byte-count of the input.params.Body,
+which was read from the size of the file given by Body.path on disk as reported by lstatSync and is 0.
+If this is not correct, provide an override value by setting a number
+to input.params.ContentLength in bytes.
+`);
+    });
+
+    it("should use the input ContentLength as the total byte count if supplied by the caller", async () => {
+      const s3 = new S3({
+        region: process.env.AWS_SMOKE_TEST_REGION,
+      });
+
+      const pseudoFileReadStream = fs.createReadStream("/dev/urandom", { end: 6 * 1024 * 1024 });
+
+      const upload = new Upload({
+        client: s3,
+        params: {
+          Key: `/dev/urandom`,
+          Bucket: process.env.AWS_SMOKE_TEST_BUCKET,
+          Body: pseudoFileReadStream,
+          ContentLength: 6 * 1024 * 1024,
+        },
+      });
+
+      await upload.done();
+      // no thrown error is sufficient.
+    });
+  });
+}, 60_000);

@@ -1,0 +1,597 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "@aws-sdk/body-checksum-browser": {
+    "bodyChecksumGenerator": "function, since <=3.930.0"
+  },
+  "@aws-sdk/body-checksum-node": {
+    "bodyChecksumGenerator": "function, since <=3.930.0"
+  },
+  "@aws-sdk/chunked-stream-reader-node": {
+    "streamReader": "function, since <=3.893.0"
+  },
+  "@aws-sdk/cloudfront-signer": {
+    "getSignedCookies": "function, since <=3.930.0",
+    "getSignedUrl": "function, since <=3.930.0"
+  },
+  "@aws-sdk/core": {
+    "AWSSDKSigV4Signer": "function, since <=3.930.0",
+    "AwsEc2QueryProtocol": "function, since <=3.930.0",
+    "AwsJson1_0Protocol": "function, since <=3.930.0",
+    "AwsJson1_1Protocol": "function, since <=3.930.0",
+    "AwsJsonRpcProtocol": "function, since <=3.930.0",
+    "AwsQueryProtocol": "function, since <=3.930.0",
+    "AwsRestJsonProtocol": "function, since <=3.930.0",
+    "AwsRestXmlProtocol": "function, since <=3.930.0",
+    "AwsSdkSigV4ASigner": "function, since <=3.930.0",
+    "AwsSdkSigV4Signer": "function, since <=3.930.0",
+    "AwsSmithyRpcV2CborProtocol": "function, since <=3.930.0",
+    "JsonCodec": "function, since <=3.930.0",
+    "JsonShapeDeserializer": "function, since <=3.930.0",
+    "JsonShapeSerializer": "function, since <=3.930.0",
+    "NODE_AUTH_SCHEME_PREFERENCE_OPTIONS": "object, since <=3.930.0",
+    "NODE_SIGV4A_CONFIG_OPTIONS": "object, since <=3.930.0",
+    "XmlCodec": "function, since <=3.930.0",
+    "XmlShapeDeserializer": "function, since <=3.930.0",
+    "XmlShapeSerializer": "function, since <=3.930.0",
+    "_toBool": "function, since <=3.930.0",
+    "_toNum": "function, since <=3.930.0",
+    "_toStr": "function, since <=3.930.0",
+    "awsExpectUnion": "function, since <=3.930.0",
+    "emitWarningIfUnsupportedVersion": "function, since <=3.930.0",
+    "getBearerTokenEnvKey": "function, since <=3.930.0",
+    "loadRestJsonErrorCode": "function, since <=3.930.0",
+    "loadRestXmlErrorCode": "function, since <=3.930.0",
+    "parseJsonBody": "function, since <=3.930.0",
+    "parseJsonErrorBody": "function, since <=3.930.0",
+    "parseXmlBody": "function, since <=3.930.0",
+    "parseXmlErrorBody": "function, since <=3.930.0",
+    "resolveAWSSDKSigV4Config": "function, since <=3.930.0",
+    "resolveAwsSdkSigV4AConfig": "function, since <=3.930.0",
+    "resolveAwsSdkSigV4Config": "function, since <=3.930.0",
+    "setCredentialFeature": "function, since <=3.930.0",
+    "setFeature": "function, since <=3.930.0",
+    "setTokenFeature": "function, since <=3.930.0",
+    "state": "object, since <=3.930.0",
+    "validateSigningProperties": "function, since <=3.930.0"
+  },
+  "@aws-sdk/crc64-nvme-crt": {
+    "CrtCrc64Nvme": "function, since <=3.930.0"
+  },
+  "@aws-sdk/credential-provider-cognito-identity": {
+    "fromCognitoIdentity": "function, since <=3.930.0",
+    "fromCognitoIdentityPool": "function, since <=3.930.0"
+  },
+  "@aws-sdk/credential-provider-env": {
+    "ENV_ACCOUNT_ID": "string, since <=3.930.0",
+    "ENV_CREDENTIAL_SCOPE": "string, since <=3.930.0",
+    "ENV_EXPIRATION": "string, since <=3.930.0",
+    "ENV_KEY": "string, since <=3.930.0",
+    "ENV_SECRET": "string, since <=3.930.0",
+    "ENV_SESSION": "string, since <=3.930.0",
+    "fromEnv": "function, since <=3.930.0"
+  },
+  "@aws-sdk/credential-provider-http": {
+    "fromHttp": "function, since <=3.930.0"
+  },
+  "@aws-sdk/credential-provider-ini": {
+    "fromIni": "function, since <=3.930.0"
+  },
+  "@aws-sdk/credential-provider-node": {
+    "credentialsTreatedAsExpired": "function, since <=3.930.0",
+    "credentialsWillNeedRefresh": "function, since <=3.930.0",
+    "defaultProvider": "function, since <=3.930.0"
+  },
+  "@aws-sdk/credential-provider-process": {
+    "fromProcess": "function, since <=3.930.0"
+  },
+  "@aws-sdk/credential-provider-sso": {
+    "fromSSO": "function, since <=3.930.0",
+    "isSsoProfile": "function, since <=3.930.0",
+    "validateSsoProfile": "function, since <=3.930.0"
+  },
+  "@aws-sdk/credential-provider-web-identity": {
+    "fromTokenFile": "function, since <=3.930.0",
+    "fromWebToken": "function, since <=3.930.0"
+  },
+  "@aws-sdk/credential-providers": {
+    "fromHttp": "function, since <=3.930.0",
+    "createCredentialChain": "function, since <=3.930.0",
+    "propertyProviderChain": "function, since <=3.930.0",
+    "fromCognitoIdentity": "function, since <=3.930.0",
+    "fromCognitoIdentityPool": "function, since <=3.930.0",
+    "fromContainerMetadata": "function, since <=3.930.0",
+    "fromEnv": "function, since <=3.930.0",
+    "fromIni": "function, since <=3.930.0",
+    "fromInstanceMetadata": "function, since <=3.930.0",
+    "fromNodeProviderChain": "function, since <=3.930.0",
+    "fromProcess": "function, since <=3.930.0",
+    "fromSSO": "function, since <=3.930.0",
+    "fromTemporaryCredentials": "function, since <=3.930.0",
+    "fromTokenFile": "function, since <=3.930.0",
+    "fromWebToken": "function, since <=3.930.0",
+    "fromLoginCredentials": "function, since 3.936.0"
+  },
+  "@aws-sdk/crt-loader": {
+    "auth": "object, since <=3.930.0",
+    "cancel": "object, since <=3.930.0",
+    "checksums": "object, since <=3.930.0",
+    "crypto": "object, since <=3.930.0",
+    "crt": "object, since <=3.930.0",
+    "eventstream": "object, since <=3.930.0",
+    "http": "object, since <=3.930.0",
+    "io": "object, since <=3.930.0",
+    "iot": "object, since <=3.930.0",
+    "mqtt": "object, since <=3.930.0",
+    "mqtt5": "object, since <=3.930.0",
+    "mqtt_request_response": "object, since <=3.930.0",
+    "platform": "object, since <=3.930.0",
+    "promise": "object, since <=3.930.0",
+    "resource_safety": "object, since <=3.930.0",
+    "CrtError": "function, since <=3.930.0"
+  },
+  "@aws-sdk/dsql-signer": {
+    "DsqlSigner": "function, since <=3.930.0"
+  },
+  "@aws-sdk/ec2-metadata-service": {
+    "MetadataService": "function, since <=3.930.0"
+  },
+  "@aws-sdk/endpoint-cache": {
+    "EndpointCache": "function, since <=3.893.0"
+  },
+  "@aws-sdk/eventstream-handler-node": {
+    "eventStreamPayloadHandlerProvider": "function, since <=3.930.0"
+  },
+  "@aws-sdk/karma-credential-loader": {
+    "preprocessor:credentials": "object, since <=3.930.0"
+  },
+  "@aws-sdk/middleware-api-key": {
+    "apiKeyMiddleware": "function, since <=3.930.0",
+    "apiKeyMiddlewareOptions": "object, since <=3.930.0",
+    "getApiKeyPlugin": "function, since <=3.930.0",
+    "resolveApiKeyConfig": "function, since <=3.930.0"
+  },
+  "@aws-sdk/middleware-bucket-endpoint": {
+    "NODE_DISABLE_MULTIREGION_ACCESS_POINT_CONFIG_OPTIONS": "object, since <=3.930.0",
+    "NODE_DISABLE_MULTIREGION_ACCESS_POINT_ENV_NAME": "string, since <=3.930.0",
+    "NODE_DISABLE_MULTIREGION_ACCESS_POINT_INI_NAME": "string, since <=3.930.0",
+    "NODE_USE_ARN_REGION_CONFIG_OPTIONS": "object, since <=3.930.0",
+    "NODE_USE_ARN_REGION_ENV_NAME": "string, since <=3.930.0",
+    "NODE_USE_ARN_REGION_INI_NAME": "string, since <=3.930.0",
+    "bucketEndpointMiddleware": "function, since <=3.930.0",
+    "bucketEndpointMiddlewareOptions": "object, since <=3.930.0",
+    "bucketHostname": "function, since <=3.930.0",
+    "getArnResources": "function, since <=3.930.0",
+    "getBucketEndpointPlugin": "function, since <=3.930.0",
+    "getSuffixForArnEndpoint": "function, since <=3.930.0",
+    "resolveBucketEndpointConfig": "function, since <=3.930.0",
+    "validateAccountId": "function, since <=3.930.0",
+    "validateDNSHostLabel": "function, since <=3.930.0",
+    "validateNoDualstack": "function, since <=3.930.0",
+    "validateNoFIPS": "function, since <=3.930.0",
+    "validateOutpostService": "function, since <=3.930.0",
+    "validatePartition": "function, since <=3.930.0",
+    "validateRegion": "function, since <=3.930.0"
+  },
+  "@aws-sdk/middleware-endpoint-discovery": {
+    "NODE_ENDPOINT_DISCOVERY_CONFIG_OPTIONS": "object, since <=3.930.0",
+    "endpointDiscoveryMiddlewareOptions": "object, since <=3.930.0",
+    "getEndpointDiscoveryOptionalPlugin": "function, since <=3.930.0",
+    "getEndpointDiscoveryPlugin": "function, since <=3.930.0",
+    "getEndpointDiscoveryRequiredPlugin": "function, since <=3.930.0",
+    "resolveEndpointDiscoveryConfig": "function, since <=3.930.0"
+  },
+  "@aws-sdk/middleware-eventstream": {
+    "eventStreamHandlingMiddleware": "function, since <=3.930.0",
+    "eventStreamHandlingMiddlewareOptions": "object, since <=3.930.0",
+    "eventStreamHeaderMiddleware": "function, since <=3.930.0",
+    "eventStreamHeaderMiddlewareOptions": "object, since <=3.930.0",
+    "getEventStreamPlugin": "function, since <=3.930.0",
+    "resolveEventStreamConfig": "function, since <=3.930.0"
+  },
+  "@aws-sdk/middleware-expect-continue": {
+    "addExpectContinueMiddleware": "function, since <=3.930.0",
+    "addExpectContinueMiddlewareOptions": "object, since <=3.930.0",
+    "getAddExpectContinuePlugin": "function, since <=3.930.0"
+  },
+  "@aws-sdk/middleware-flexible-checksums": {
+    "ChecksumAlgorithm": "object, since <=3.930.0",
+    "ChecksumLocation": "object, since <=3.930.0",
+    "CONFIG_REQUEST_CHECKSUM_CALCULATION": "string, since <=3.930.0",
+    "CONFIG_RESPONSE_CHECKSUM_VALIDATION": "string, since <=3.930.0",
+    "DEFAULT_CHECKSUM_ALGORITHM": "string, since <=3.930.0",
+    "DEFAULT_REQUEST_CHECKSUM_CALCULATION": "string, since <=3.930.0",
+    "DEFAULT_RESPONSE_CHECKSUM_VALIDATION": "string, since <=3.930.0",
+    "ENV_REQUEST_CHECKSUM_CALCULATION": "string, since <=3.930.0",
+    "ENV_RESPONSE_CHECKSUM_VALIDATION": "string, since <=3.930.0",
+    "NODE_REQUEST_CHECKSUM_CALCULATION_CONFIG_OPTIONS": "object, since <=3.930.0",
+    "NODE_RESPONSE_CHECKSUM_VALIDATION_CONFIG_OPTIONS": "object, since <=3.930.0",
+    "RequestChecksumCalculation": "object, since <=3.930.0",
+    "ResponseChecksumValidation": "object, since <=3.930.0",
+    "flexibleChecksumsMiddleware": "function, since <=3.930.0",
+    "flexibleChecksumsMiddlewareOptions": "object, since <=3.930.0",
+    "getFlexibleChecksumsPlugin": "function, since <=3.930.0",
+    "resolveFlexibleChecksumsConfig": "function, since <=3.930.0"
+  },
+  "@aws-sdk/middleware-host-header": {
+    "getHostHeaderPlugin": "function, since <=3.930.0",
+    "hostHeaderMiddleware": "function, since <=3.930.0",
+    "hostHeaderMiddlewareOptions": "object, since <=3.930.0",
+    "resolveHostHeaderConfig": "function, since <=3.930.0"
+  },
+  "@aws-sdk/middleware-http-debug-log": {
+    "getHttpDebugLogPlugin": "function, since <=3.930.0",
+    "getMiddlewareTimerPlugin": "function, since <=3.930.0"
+  },
+  "@aws-sdk/middleware-location-constraint": {
+    "getLocationConstraintPlugin": "function, since <=3.930.0",
+    "locationConstraintMiddleware": "function, since <=3.930.0",
+    "locationConstraintMiddlewareOptions": "object, since <=3.930.0"
+  },
+  "@aws-sdk/middleware-logger": {
+    "getLoggerPlugin": "function, since <=3.930.0",
+    "loggerMiddleware": "function, since <=3.930.0",
+    "loggerMiddlewareOptions": "object, since <=3.930.0"
+  },
+  "@aws-sdk/middleware-recursion-detection": {
+    "getRecursionDetectionPlugin": "function, since <=3.930.0",
+    "recursionDetectionMiddleware": "function, since <=3.930.0"
+  },
+  "@aws-sdk/middleware-sdk-api-gateway": {
+    "acceptHeaderMiddleware": "function, since <=3.930.0",
+    "acceptHeaderMiddlewareOptions": "object, since <=3.930.0",
+    "getAcceptHeaderPlugin": "function, since <=3.930.0"
+  },
+  "@aws-sdk/middleware-sdk-ec2": {
+    "copySnapshotPresignedUrlMiddleware": "function, since <=3.930.0",
+    "copySnapshotPresignedUrlMiddlewareOptions": "object, since <=3.930.0",
+    "getCopySnapshotPresignedUrlPlugin": "function, since <=3.930.0"
+  },
+  "@aws-sdk/middleware-sdk-glacier": {
+    "accountIdDefaultMiddleware": "function, since <=3.930.0",
+    "accountIdDefaultMiddlewareOptions": "object, since <=3.930.0",
+    "addChecksumHeadersMiddleware": "function, since <=3.930.0",
+    "addChecksumHeadersMiddlewareOptions": "object, since <=3.930.0",
+    "addGlacierApiVersionMiddleware": "function, since <=3.930.0",
+    "addGlacierApiVersionMiddlewareOptions": "object, since <=3.930.0",
+    "getGlacierPlugin": "function, since <=3.930.0"
+  },
+  "@aws-sdk/middleware-sdk-machinelearning": {
+    "getPredictEndpointPlugin": "function, since <=3.930.0",
+    "predictEndpointMiddleware": "function, since <=3.930.0",
+    "predictEndpointMiddlewareOptions": "object, since <=3.930.0"
+  },
+  "@aws-sdk/middleware-sdk-rds": {
+    "crossRegionPresignedUrlMiddleware": "function, since <=3.930.0",
+    "crossRegionPresignedUrlMiddlewareOptions": "object, since <=3.930.0",
+    "getCrossRegionPresignedUrlPlugin": "function, since <=3.930.0"
+  },
+  "@aws-sdk/middleware-sdk-route53": {
+    "changeResourceRecordSetsMiddleware": "function, since <=3.930.0",
+    "changeResourceRecordSetsMiddlewareOptions": "object, since <=3.930.0",
+    "getChangeResourceRecordSetsPlugin": "function, since <=3.930.0",
+    "getIdNormalizerPlugin": "function, since <=3.930.0",
+    "idNormalizerMiddleware": "function, since <=3.930.0",
+    "idNormalizerMiddlewareOptions": "object, since <=3.930.0"
+  },
+  "@aws-sdk/middleware-sdk-s3": {
+    "NODE_DISABLE_S3_EXPRESS_SESSION_AUTH_OPTIONS": "object, since <=3.930.0",
+    "S3ExpressIdentityCache": "function, since <=3.930.0",
+    "S3ExpressIdentityCacheEntry": "function, since <=3.930.0",
+    "S3ExpressIdentityProviderImpl": "function, since <=3.930.0",
+    "SignatureV4S3Express": "function, since <=3.930.0",
+    "checkContentLengthHeader": "function, since <=3.930.0",
+    "checkContentLengthHeaderMiddlewareOptions": "object, since <=3.930.0",
+    "getCheckContentLengthHeaderPlugin": "function, since <=3.930.0",
+    "getRegionRedirectMiddlewarePlugin": "function, since <=3.930.0",
+    "getS3ExpiresMiddlewarePlugin": "function, since <=3.930.0",
+    "getS3ExpressHttpSigningPlugin": "function, since <=3.930.0",
+    "getS3ExpressPlugin": "function, since <=3.930.0",
+    "getThrow200ExceptionsPlugin": "function, since <=3.930.0",
+    "getValidateBucketNamePlugin": "function, since <=3.930.0",
+    "regionRedirectEndpointMiddleware": "function, since <=3.930.0",
+    "regionRedirectEndpointMiddlewareOptions": "object, since <=3.930.0",
+    "regionRedirectMiddleware": "function, since <=3.930.0",
+    "regionRedirectMiddlewareOptions": "object, since <=3.930.0",
+    "resolveS3Config": "function, since <=3.930.0",
+    "s3ExpiresMiddleware": "function, since <=3.930.0",
+    "s3ExpiresMiddlewareOptions": "object, since <=3.930.0",
+    "s3ExpressHttpSigningMiddleware": "function, since <=3.930.0",
+    "s3ExpressHttpSigningMiddlewareOptions": "object, since <=3.930.0",
+    "s3ExpressMiddleware": "function, since <=3.930.0",
+    "s3ExpressMiddlewareOptions": "object, since <=3.930.0",
+    "throw200ExceptionsMiddleware": "function, since <=3.930.0",
+    "throw200ExceptionsMiddlewareOptions": "object, since <=3.930.0",
+    "validateBucketNameMiddleware": "function, since <=3.930.0",
+    "validateBucketNameMiddlewareOptions": "object, since <=3.930.0"
+  },
+  "@aws-sdk/middleware-sdk-s3-control": {
+    "NODE_USE_ARN_REGION_CONFIG_OPTIONS": "object, since <=3.930.0",
+    "getHostPrefixDeduplicationPlugin": "function, since <=3.930.0",
+    "getProcessArnablesPlugin": "function, since <=3.930.0",
+    "getRedirectFromPostIdPlugin": "function, since <=3.930.0",
+    "hostPrefixDeduplicationMiddleware": "function, since <=3.930.0",
+    "hostPrefixDeduplicationMiddlewareOptions": "object, since <=3.930.0",
+    "parseOutpostArnablesMiddleaware": "function, since <=3.930.0",
+    "parseOutpostArnablesMiddleawareOptions": "object, since <=3.930.0",
+    "redirectFromPostIdMiddleware": "function, since <=3.930.0",
+    "redirectFromPostIdMiddlewareOptions": "object, since <=3.930.0",
+    "resolveS3ControlConfig": "function, since <=3.930.0",
+    "updateArnablesRequestMiddleware": "function, since <=3.930.0",
+    "updateArnablesRequestMiddlewareOptions": "object, since <=3.930.0"
+  },
+  "@aws-sdk/middleware-sdk-sqs": {
+    "getQueueUrlPlugin": "function, since <=3.930.0",
+    "getReceiveMessagePlugin": "function, since <=3.930.0",
+    "getSendMessageBatchPlugin": "function, since <=3.930.0",
+    "getSendMessagePlugin": "function, since <=3.930.0",
+    "queueUrlMiddleware": "function, since <=3.930.0",
+    "queueUrlMiddlewareOptions": "object, since <=3.930.0",
+    "receiveMessageMiddleware": "function, since <=3.930.0",
+    "receiveMessageMiddlewareOptions": "object, since <=3.930.0",
+    "resolveQueueUrlConfig": "function, since <=3.930.0",
+    "sendMessageBatchMiddleware": "function, since <=3.930.0",
+    "sendMessageBatchMiddlewareOptions": "object, since <=3.930.0",
+    "sendMessageMiddleware": "function, since <=3.930.0",
+    "sendMessageMiddlewareOptions": "object, since <=3.930.0"
+  },
+  "@aws-sdk/middleware-sdk-sts": {
+    "resolveStsAuthConfig": "function, since <=3.930.0"
+  },
+  "@aws-sdk/middleware-sdk-transcribe-streaming": {
+    "eventStreamPayloadHandler": "object, since <=3.930.0",
+    "getTranscribeStreamingPlugin": "function, since <=3.930.0",
+    "injectResponseValuesMiddleware": "function, since <=3.930.0",
+    "injectResponseValuesMiddlewareOptions": "object, since <=3.930.0",
+    "websocketPortMiddleware": "function, since <=3.930.0",
+    "websocketPortMiddlewareOptions": "object, since <=3.930.0"
+  },
+  "@aws-sdk/middleware-signing": {
+    "awsAuthMiddleware": "function, since <=3.930.0",
+    "awsAuthMiddlewareOptions": "object, since <=3.930.0",
+    "getAwsAuthPlugin": "function, since <=3.930.0",
+    "getSigV4AuthPlugin": "function, since <=3.930.0",
+    "resolveAwsAuthConfig": "function, since <=3.930.0",
+    "resolveSigV4AuthConfig": "function, since <=3.930.0"
+  },
+  "@aws-sdk/middleware-ssec": {
+    "getSsecPlugin": "function, since <=3.930.0",
+    "isValidBase64EncodedSSECustomerKey": "function, since <=3.930.0",
+    "ssecMiddleware": "function, since <=3.930.0",
+    "ssecMiddlewareOptions": "object, since <=3.930.0"
+  },
+  "@aws-sdk/middleware-token": {
+    "getTokenPlugin": "function, since <=3.930.0",
+    "resolveTokenConfig": "function, since <=3.930.0",
+    "tokenMiddleware": "function, since <=3.930.0",
+    "tokenMiddlewareOptions": "object, since <=3.930.0"
+  },
+  "@aws-sdk/middleware-user-agent": {
+    "DEFAULT_UA_APP_ID": "undefined, since <=3.930.0",
+    "getUserAgentMiddlewareOptions": "object, since <=3.930.0",
+    "getUserAgentPlugin": "function, since <=3.930.0",
+    "resolveUserAgentConfig": "function, since <=3.930.0",
+    "userAgentMiddleware": "function, since <=3.930.0"
+  },
+  "@aws-sdk/middleware-websocket": {
+    "WebSocketFetchHandler": "function, since <=3.930.0",
+    "eventStreamPayloadHandlerProvider": "function, since <=3.930.0",
+    "getWebSocketPlugin": "function, since <=3.930.0",
+    "resolveWebSocketConfig": "function, since <=3.930.0"
+  },
+  "@aws-sdk/nested-clients": {},
+  "@aws-sdk/polly-request-presigner": {
+    "getSynthesizeSpeechUrl": "function, since <=3.930.0"
+  },
+  "@aws-sdk/rds-signer": {
+    "Signer": "function, since <=3.930.0"
+  },
+  "@aws-sdk/region-config-resolver": {
+    "NODE_REGION_CONFIG_FILE_OPTIONS": "object, since <=3.930.0",
+    "NODE_REGION_CONFIG_OPTIONS": "object, since <=3.930.0",
+    "REGION_ENV_NAME": "string, since <=3.930.0",
+    "REGION_INI_NAME": "string, since <=3.930.0",
+    "resolveRegionConfig": "function, since <=3.930.0",
+    "getAwsRegionExtensionConfiguration": "function, since <=3.930.0",
+    "resolveAwsRegionExtensionConfiguration": "function, since <=3.930.0",
+    "warning": "object, since <=3.930.0",
+    "stsRegionDefaultResolver": "function, since <=3.930.0"
+  },
+  "@aws-sdk/s3-presigned-post": {
+    "createPresignedPost": "function, since <=3.930.0"
+  },
+  "@aws-sdk/s3-request-presigner": {
+    "S3RequestPresigner": "function, since <=3.930.0",
+    "getSignedUrl": "function, since <=3.930.0"
+  },
+  "@aws-sdk/sha256-tree-hash": {
+    "TreeHash": "function, since <=3.930.0"
+  },
+  "@aws-sdk/signature-v4-crt": {
+    "CrtSignerV4": "function, since <=3.930.0"
+  },
+  "@aws-sdk/signature-v4-multi-region": {
+    "SignatureV4MultiRegion": "function, since <=3.930.0",
+    "signatureV4CrtContainer": "object, since <=3.930.0"
+  },
+  "@aws-sdk/signature-v4a": {
+    "SignatureV4a": "function, since <=3.930.0"
+  },
+  "@aws-sdk/smithy-client": {
+    "collectBody": "function, since <=3.930.0",
+    "extendedEncodeURIComponent": "function, since <=3.930.0",
+    "resolvedPath": "function, since <=3.930.0",
+    "Client": "function, since <=3.930.0",
+    "Command": "function, since <=3.930.0",
+    "NoOpLogger": "function, since <=3.930.0",
+    "SENSITIVE_STRING": "string, since <=3.930.0",
+    "ServiceException": "function, since <=3.930.0",
+    "_json": "function, since <=3.930.0",
+    "convertMap": "function, since <=3.930.0",
+    "createAggregatedClient": "function, since <=3.930.0",
+    "decorateServiceException": "function, since <=3.930.0",
+    "emitWarningIfUnsupportedVersion": "function, since <=3.930.0",
+    "getArrayIfSingleItem": "function, since <=3.930.0",
+    "getDefaultClientConfiguration": "function, since <=3.930.0",
+    "getDefaultExtensionConfiguration": "function, since <=3.930.0",
+    "getValueFromTextNode": "function, since <=3.930.0",
+    "isSerializableHeaderValue": "function, since <=3.930.0",
+    "loadConfigsForDefaultMode": "function, since <=3.930.0",
+    "map": "function, since <=3.930.0",
+    "resolveDefaultRuntimeConfig": "function, since <=3.930.0",
+    "serializeDateTime": "function, since <=3.930.0",
+    "serializeFloat": "function, since <=3.930.0",
+    "take": "function, since <=3.930.0",
+    "throwDefaultError": "function, since <=3.930.0",
+    "withBaseException": "function, since <=3.930.0",
+    "generateIdempotencyToken": "function, since <=3.930.0",
+    "LazyJsonString": "function, since <=3.930.0",
+    "NumericValue": "function, since <=3.930.0",
+    "_parseEpochTimestamp": "function, since <=3.930.0",
+    "_parseRfc3339DateTimeWithOffset": "function, since <=3.930.0",
+    "_parseRfc7231DateTime": "function, since <=3.930.0",
+    "copyDocumentWithTransform": "function, since <=3.930.0",
+    "dateToUtcString": "function, since <=3.930.0",
+    "expectBoolean": "function, since <=3.930.0",
+    "expectByte": "function, since <=3.930.0",
+    "expectFloat32": "function, since <=3.930.0",
+    "expectInt": "function, since <=3.930.0",
+    "expectInt32": "function, since <=3.930.0",
+    "expectLong": "function, since <=3.930.0",
+    "expectNonNull": "function, since <=3.930.0",
+    "expectNumber": "function, since <=3.930.0",
+    "expectObject": "function, since <=3.930.0",
+    "expectShort": "function, since <=3.930.0",
+    "expectString": "function, since <=3.930.0",
+    "expectUnion": "function, since <=3.930.0",
+    "handleFloat": "function, since <=3.930.0",
+    "limitedParseDouble": "function, since <=3.930.0",
+    "limitedParseFloat": "function, since <=3.930.0",
+    "limitedParseFloat32": "function, since <=3.930.0",
+    "logger": "object, since <=3.930.0",
+    "nv": "function, since <=3.930.0",
+    "parseBoolean": "function, since <=3.930.0",
+    "parseEpochTimestamp": "function, since <=3.930.0",
+    "parseRfc3339DateTime": "function, since <=3.930.0",
+    "parseRfc3339DateTimeWithOffset": "function, since <=3.930.0",
+    "parseRfc7231DateTime": "function, since <=3.930.0",
+    "quoteHeader": "function, since <=3.930.0",
+    "splitEvery": "function, since <=3.930.0",
+    "splitHeader": "function, since <=3.930.0",
+    "strictParseByte": "function, since <=3.930.0",
+    "strictParseDouble": "function, since <=3.930.0",
+    "strictParseFloat": "function, since <=3.930.0",
+    "strictParseFloat32": "function, since <=3.930.0",
+    "strictParseInt": "function, since <=3.930.0",
+    "strictParseInt32": "function, since <=3.930.0",
+    "strictParseLong": "function, since <=3.930.0",
+    "strictParseShort": "function, since <=3.930.0"
+  },
+  "@aws-sdk/token-providers": {
+    "fromEnvSigningName": "function, since <=3.930.0",
+    "fromSso": "function, since <=3.930.0",
+    "fromStatic": "function, since <=3.930.0",
+    "nodeProvider": "function, since <=3.930.0"
+  },
+  "@aws-sdk/types": {
+    "HostAddressType": "object, since <=3.930.0",
+    "EndpointURLScheme": "object, since <=3.930.0",
+    "HttpAuthLocation": "object, since <=3.930.0",
+    "RequestHandlerProtocol": "object, since <=3.930.0"
+  },
+  "@aws-sdk/util-arn-parser": {
+    "build": "function, since <=3.893.0",
+    "parse": "function, since <=3.893.0",
+    "validate": "function, since <=3.893.0"
+  },
+  "@aws-sdk/util-create-request": {
+    "createRequest": "function, since <=3.930.0"
+  },
+  "@aws-sdk/util-dns": {
+    "HostResolver": "function, since <=3.930.0",
+    "NodeDnsLookupHostResolver": "function, since <=3.930.0"
+  },
+  "@aws-sdk/util-dynamodb": {
+    "NumberValueImpl": "function, since <=3.930.0",
+    "convertToAttr": "function, since <=3.930.0",
+    "convertToNative": "function, since <=3.930.0",
+    "marshall": "function, since <=3.930.0",
+    "unmarshall": "function, since <=3.930.0"
+  },
+  "@aws-sdk/util-endpoints": {
+    "EndpointError": "function, since <=3.930.0",
+    "isIpAddress": "function, since <=3.930.0",
+    "resolveEndpoint": "function, since <=3.930.0",
+    "awsEndpointFunctions": "object, since <=3.930.0",
+    "getUserAgentPrefix": "function, since <=3.930.0",
+    "partition": "function, since <=3.930.0",
+    "resolveDefaultAwsRegionalEndpointsConfig": "function, since <=3.930.0",
+    "setPartitionInfo": "function, since <=3.930.0",
+    "toEndpointV1": "function, since <=3.930.0",
+    "useDefaultPartitionInfo": "function, since <=3.930.0"
+  },
+  "@aws-sdk/util-format-url": {
+    "formatUrl": "function, since <=3.930.0"
+  },
+  "@aws-sdk/util-locate-window": {
+    "locateWindow": "function, since <=3.893.0"
+  },
+  "@aws-sdk/util-user-agent-browser": {
+    "createUserAgentStringParsingProvider": "function, since <=3.930.0",
+    "createDefaultUserAgentProvider": "function, since <=3.930.0",
+    "fallback": "object, since <=3.930.0",
+    "defaultUserAgent": "function, since <=3.930.0"
+  },
+  "@aws-sdk/util-user-agent-node": {
+    "NODE_APP_ID_CONFIG_OPTIONS": "object, since <=3.930.0",
+    "UA_APP_ID_ENV_NAME": "string, since <=3.930.0",
+    "UA_APP_ID_INI_NAME": "string, since <=3.930.0",
+    "createDefaultUserAgentProvider": "function, since <=3.930.0",
+    "crtAvailability": "object, since <=3.930.0",
+    "defaultUserAgent": "function, since <=3.930.0"
+  },
+  "@aws-sdk/xhr-http-handler": {
+    "XhrHttpHandler": "function, since <=3.930.0"
+  },
+  "@aws-sdk/xml-builder": {
+    "parseXML": "function, since <=3.930.0",
+    "XmlNode": "function, since <=3.930.0",
+    "XmlText": "function, since <=3.930.0"
+  },
+  "@aws-sdk/lib-dynamodb": {
+    "$Command": "function, since <=3.930.0",
+    "__Client": "function, since <=3.930.0",
+    "NumberValue": "function, since <=3.930.0",
+    "BatchExecuteStatementCommand": "function, since <=3.930.0",
+    "BatchGetCommand": "function, since <=3.930.0",
+    "BatchWriteCommand": "function, since <=3.930.0",
+    "DeleteCommand": "function, since <=3.930.0",
+    "DynamoDBDocument": "function, since <=3.930.0",
+    "DynamoDBDocumentClient": "function, since <=3.930.0",
+    "DynamoDBDocumentClientCommand": "function, since <=3.930.0",
+    "ExecuteStatementCommand": "function, since <=3.930.0",
+    "ExecuteTransactionCommand": "function, since <=3.930.0",
+    "GetCommand": "function, since <=3.930.0",
+    "PutCommand": "function, since <=3.930.0",
+    "QueryCommand": "function, since <=3.930.0",
+    "ScanCommand": "function, since <=3.930.0",
+    "TransactGetCommand": "function, since <=3.930.0",
+    "TransactWriteCommand": "function, since <=3.930.0",
+    "UpdateCommand": "function, since <=3.930.0",
+    "paginateQuery": "function, since <=3.930.0",
+    "paginateScan": "function, since <=3.930.0"
+  },
+  "@aws-sdk/lib-storage": {
+    "Upload": "function, since <=3.930.0"
+  },
+  "@aws-sdk/credential-provider-login": {
+    "fromLoginCredentials": "function, since <=3.936.0"
+  },
+  "@aws-sdk/dynamodb-codec": {
+    "DynamoDBJsonCodec": "function, since <=3.0.0"
+  },
+  "@aws-sdk/crc64-nvme": {
+    "Crc64Nvme": "function, since <=3.955.0",
+    "crc64NvmeCrtContainer": "object, since <=3.956.0"
+  },
+  "@aws-sdk/config": {}
+}

@@ -1,0 +1,36 @@
+{
+  "$schema": "https://typedoc.org/schema.json",
+  "entryPoints": [
+    "clients/*/src/index.ts",
+    "lib/*/src/index.ts",
+    "packages/*/src/index.ts",
+    "packages-internal/*/src/index.ts"
+  ],
+  "entryPointStrategy": "expand",
+  "name": "IBM COS SDK for JavaScript V2",
+  "readme": "README.md",
+  "customCss": "typedoc-custom.css",
+  "out": "docs",
+  "skipErrorChecking": true,
+  "hideGenerator": true,
+  "theme": "default",
+  "navigation": true,
+  "tsconfig": "./tsconfig.types.json",
+  "exclude": [
+    "**/node_modules/**",
+    "**/test/**",
+    "**/tests/**",
+    "**/*.spec.ts"
+  ],
+  "excludeExternals": false,
+  "excludePrivate": true,
+  "excludeProtected": true,
+  "includeVersion": true,
+  "sort": ["source-order"],
+  "categorizeByGroup": true,
+  "searchInComments": true,
+  "validation": {
+    "notExported": false,
+    "invalidLink": true
+  }
+}

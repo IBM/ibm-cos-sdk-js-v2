@@ -1,0 +1,255 @@
+// @ts-check
+const { join, basename } = require("path");
+const { copySync, removeSync } = require("fs-extra");
+const prettier = require("prettier");
+const semver = require("semver");
+const { readdirSync, lstatSync, readFileSync, existsSync, writeFileSync } = require("fs");
+
+const getOverwritableDirectories = (subDirectories, packageName) => {
+  const additionalOverwritablePaths = {
+    "@ibm-cos/client-sts": ["defaultRoleAssumers.ts", "defaultStsRoleAssumers.ts", "defaultRoleAssumers.spec.ts"],
+  };
+  const unoverwritablePaths = {
+    "@ibm-cos/client-transcribe-streaming": ["README.md"],
+  };
+  const overwritablePaths = [
+    "src", // contains all source files
+    "LICENCE",
+    "README.md",
+  ];
+  return subDirectories.filter((path) => {
+    const isUnoverwritablePaths = unoverwritablePaths[packageName]?.indexOf(path) >= 0;
+    const isProtocolTestFolder = packageName.startsWith("@ibm-cos/aws-") && path === "test";
+    const isOverwritableDirectory = overwritablePaths.indexOf(path) >= 0;
+    const isAdditionalOverwritablePaths = additionalOverwritablePaths[packageName]?.indexOf(path) >= 0;
+    return !isUnoverwritablePaths && (isOverwritableDirectory || isProtocolTestFolder || isAdditionalOverwritablePaths);
+  });
+};
+
+/**
+ * Copy the keys from newly-generated package.json to
+ * existing package.json. For each keys in new package.json
+ * we prefer the new key. Whereas for the values, we prefer
+ * the values in the existing package.json.
+ *
+ * This behavior enables us removing dependencies/scripts
+ * from codegen, but maintain the newer dependency versions
+ * in existing package.json
+ */
+const mergeManifest = (fromContent = {}, toContent = {}, parentKey = "root") => {
+  const merged = {};
+  for (const name of Object.keys(fromContent)) {
+    if (fromContent[name].constructor.name === "Object") {
+      if (name === "devDependencies") {
+        // Use same versions of devDependencies across all workspaces.
+        // After moving to yarn modern, we'll use constraints feature to enforce
+        // consistency in dependency versions https://yarnpkg.com/features/constraints
+        const devDepToVersionHash = {
+          "@tsconfig/node18": "18.2.4",
+          concurrently: "7.0.0",
+          "downlevel-dts": "0.10.1",
+          premove: "4.0.0",
+          typescript: "~5.8.3",
+        };
+
+        fromContent[name] = Object.keys(fromContent[name])
+          .filter((dep) => Object.keys(devDepToVersionHash).includes(dep))
+          .reduce((acc, dep) => ({ ...acc, [dep]: devDepToVersionHash[dep] }), fromContent[name]);
+
+        // ToDo: Remove if typedoc is config driven or removed in smithy-typescript.
+        delete fromContent[name]["typedoc"];
+      }
+
+      if (name === "build" && parentKey === "scripts") {
+        // build CJS after ES because of rollup inliner.
+        fromContent[name] = `concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs`;
+      }
+
+      if (name === "scripts" && !fromContent[name]["build:include:deps"]) {
+        fromContent[name]["build:include:deps"] = `yarn g:turbo run build -F="${fromContent.name}"`;
+      }
+
+      merged[name] = mergeManifest(fromContent[name], toContent[name], name);
+
+      if (name === "scripts" || name === "devDependencies") {
+        // Allow target package.json(toContent) has its own special script or
+        // dev dependencies that won't be overwritten in codegen
+        merged[name] = { ...toContent[name], ...merged[name] };
+      }
+
+      if (name === "scripts" || name === "dependencies" || name === "devDependencies") {
+        // Sort by keys to make sure the order is stable
+        merged[name] = Object.fromEntries(Object.entries(merged[name]).sort());
+      }
+    } else if (name.indexOf("@ibm-cos/") === 0) {
+      // If it's internal dependency, use current version in the repo if not
+      // present in package.json
+      merged[name] = toContent[name] || "*";
+    } else {
+      // If key (say dependency) is present in both codegen and
+      // package.json, we prefer latter
+      merged[name] = toContent[name] || fromContent[name];
+
+      // use the higher version dependency.
+      if (parentKey === "dependencies" || parentKey === "devDependencies") {
+        const toSemver = semver.coerce(toContent[name]);
+        const fromSemver = semver.coerce(fromContent[name]);
+        if (semver.valid(toSemver) && semver.valid(fromSemver)) {
+          const useToContentVersion = semver.gt(toSemver, fromSemver);
+          if (useToContentVersion) {
+            merged[name] = toContent[name];
+          } else {
+            merged[name] = fromContent[name];
+          }
+        } else {
+          if (toContent[name] === "*" && fromContent[name] !== "*") {
+            merged[name] = fromContent[name];
+          }
+        }
+      }
+    }
+  }
+
+  // Strip @aws-sdk/types: the upstream smithy-typescript-codegen JAR injects this
+  // automatically. We use @ibm-cos/types instead; removing it here prevents it from
+  // being re-added every time the client is regenerated.
+  if (merged.dependencies && merged.dependencies["@aws-sdk/types"]) {
+    delete merged.dependencies["@aws-sdk/types"];
+  }
+
+  return merged;
+};
+
+const copyToClients = async (sourceDir, destinationDir) => {
+  for (const modelName of readdirSync(sourceDir)) {
+    if (modelName === "source") continue;
+
+    const artifactPath = join(sourceDir, modelName, "typescript-codegen");
+    const packageManifestPath = join(artifactPath, "package.json");
+    if (!existsSync(packageManifestPath)) {
+      console.error(`${modelName} generates empty client, skip.`);
+      continue;
+    }
+
+    const packageManifest = JSON.parse(readFileSync(packageManifestPath).toString());
+    const packageName = packageManifest.name;
+    const clientName = packageName === "ibm-cos-sdk-v2" ? "client-s3" : packageName.replace("@ibm-cos/", "");
+
+    console.log(`copying ${packageName} from ${artifactPath} to ${destinationDir}`);
+    const destPath = join(destinationDir, clientName);
+
+    // copy and merge generated index tests
+    for (const test of [
+      join(artifactPath, "test", "index-objects.spec.mjs"),
+      join(artifactPath, "test", "index-types.ts"),
+    ]) {
+      if (existsSync(test)) {
+        copySync(test, join(destPath, "test", basename(test)), {
+          overwrite: true,
+        });
+      }
+    }
+
+    const packageSubs = readdirSync(artifactPath);
+    const overWritableSubs = getOverwritableDirectories(packageSubs, packageName);
+    for (const packageSub of packageSubs) {
+      const packageSubPath = join(artifactPath, packageSub);
+      const destSubPath = join(destPath, packageSub);
+
+      if (packageSub === "package.json") {
+        //copy manifest file
+        const destManifest = existsSync(destSubPath) ? JSON.parse(readFileSync(destSubPath).toString()) : {};
+        const mergedManifest = {
+          ...mergeManifest(packageManifest, destManifest),
+          homepage: `https://github.com/ibm/ibm-cos-sdk-js-v2`,
+          repository: {
+            type: "git",
+            url: "https://github.com/ibm/ibm-cos-sdk-js-v2.git",
+            directory: `clients/${clientName}`,
+          },
+        };
+        // no need for the default prepack script
+        delete mergedManifest.scripts.prepack;
+
+        // ToDo: Remove if typedoc is config driven or removed in smithy-typescript.
+        delete mergedManifest.scripts["build:docs"];
+
+        if (!mergedManifest.private) {
+          mergedManifest.scripts["extract:docs"] = "api-extractor run --local";
+        }
+
+        writeFileSync(destSubPath, prettier.format(JSON.stringify(mergedManifest), { parser: "json-stringify" }));
+      } else if (packageSub === "typedoc.json") {
+        // Skip writing typedoc.json
+        // ToDo: Remove if typedoc.json is config driven or removed in smithy-typescript.
+      } else if (overWritableSubs.includes(packageSub) || !existsSync(destSubPath)) {
+        if (lstatSync(packageSubPath).isDirectory()) removeSync(destSubPath);
+        copySync(packageSubPath, destSubPath, {
+          overwrite: true,
+        });
+      }
+    }
+  }
+};
+
+const copyServerTests = async (sourceDir, destinationDir) => {
+  for (const modelName of readdirSync(sourceDir)) {
+    if (modelName === "source") continue;
+
+    const artifactPath = join(sourceDir, modelName, "typescript-ssdk-codegen");
+    const packageManifestPath = join(artifactPath, "package.json");
+    if (!existsSync(packageManifestPath)) {
+      console.error(`${modelName} generates empty server, skip.`);
+      continue;
+    }
+
+    const packageManifest = JSON.parse(readFileSync(packageManifestPath).toString());
+    const packageName = packageManifest.name;
+    const testName = packageName.replace("@ibm-cos/", "");
+
+    console.log(`copying ${packageName} from ${artifactPath} to ${destinationDir}`);
+    const destPath = join(destinationDir, testName);
+
+    const packageSubs = readdirSync(artifactPath);
+    const overWritableSubs = getOverwritableDirectories(packageSubs, packageName);
+    for (const packageSub of packageSubs) {
+      const packageSubPath = join(artifactPath, packageSub);
+      const destSubPath = join(destPath, packageSub);
+
+      if (packageSub === "package.json") {
+        //copy manifest file
+        const destManifest = existsSync(destSubPath) ? JSON.parse(readFileSync(destSubPath).toString()) : {};
+        const mergedManifest = {
+          ...mergeManifest(packageManifest, destManifest),
+          homepage: `https://github.com/ibm/ibm-cos-sdk-js-v2`,
+          repository: {
+            type: "git",
+            url: "https://github.com/ibm/ibm-cos-sdk-js-v2.git",
+            directory: `private/${testName}`,
+          },
+        };
+        if (!mergedManifest.scripts.test) {
+          mergedManifest.scripts.test = "jest";
+        }
+        if (mergedManifest.private) {
+          // don't generate documentation for private packages
+          delete mergedManifest.scripts["build:docs"];
+        }
+        writeFileSync(destSubPath, prettier.format(JSON.stringify(mergedManifest), { parser: "json-stringify" }));
+      } else if (packageSub === "typedoc.json") {
+        // Skip writing typedoc.json
+        // ToDo: Remove if typedoc.json is config driven or removed in smithy-typescript.
+      } else if (overWritableSubs.includes(packageSub) || !existsSync(destSubPath)) {
+        if (lstatSync(packageSubPath).isDirectory()) removeSync(destSubPath);
+        copySync(packageSubPath, destSubPath, {
+          overwrite: true,
+        });
+      }
+    }
+  }
+};
+
+module.exports = {
+  copyToClients,
+  copyServerTests,
+};

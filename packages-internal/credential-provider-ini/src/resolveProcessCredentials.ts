@@ -1,0 +1,28 @@
+import { setCredentialFeature } from "@ibm-cos/core/client";
+import { Credentials, Profile } from "@ibm-cos/types";
+
+import { FromIniInit } from "./fromIni";
+
+/**
+ * @internal
+ */
+export interface ProcessProfile extends Profile {
+  credential_process: string;
+}
+
+/**
+ * @internal
+ */
+export const isProcessProfile = (arg: any): arg is ProcessProfile =>
+  Boolean(arg) && typeof arg === "object" && typeof arg.credential_process === "string";
+
+/**
+ * @internal
+ */
+export const resolveProcessCredentials = async (options: FromIniInit, profile: string): Promise<Credentials> =>
+  import("@ibm-cos/credential-provider-process").then(({ fromProcess }) =>
+    fromProcess({
+      ...options,
+      profile,
+    })().then((creds) => setCredentialFeature(creds, "CREDENTIALS_PROFILE_PROCESS", "v"))
+  );
