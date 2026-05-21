@@ -1,0 +1,1841 @@
+<!DOCTYPE html><html class="default" lang="en" data-base="../"><head><meta charset="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>_Error | IBM COS SDK for JavaScript V2</title><meta name="description" content="Documentation for IBM COS SDK for JavaScript V2"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="../assets/style.css"/><link rel="stylesheet" href="../assets/highlight.css"/><script defer src="../assets/main.js"></script><script async src="../assets/icons.js" id="tsd-icons-script"></script><script async src="../assets/search.js" id="tsd-search-script"></script><script async src="../assets/navigation.js" id="tsd-nav-script"></script><script async src="../assets/hierarchy.js" id="tsd-hierarchy-script"></script></head><body><script>document.documentElement.dataset.theme = localStorage.getItem("tsd-theme") || "os";document.body.style.display="none";setTimeout(() => window.app?app.showPage():document.body.style.removeProperty("display"),500)</script><header class="tsd-page-toolbar"><div class="tsd-toolbar-contents container"><a href="../index.html" class="title">IBM COS SDK for JavaScript V2</a><div id="tsd-toolbar-links"></div><button id="tsd-search-trigger" class="tsd-widget" aria-label="Search"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><use href="../assets/icons.svg#icon-search"></use></svg></button><dialog id="tsd-search" aria-label="Search"><input role="combobox" id="tsd-search-input" aria-controls="tsd-search-results" aria-autocomplete="list" aria-expanded="true" autocapitalize="off" autocomplete="off" placeholder="Search the docs" maxLength="100"/><ul role="listbox" id="tsd-search-results"></ul><div id="tsd-search-status" aria-live="polite" aria-atomic="true"><div>Preparing search index...</div></div></dialog><a href="#" class="tsd-widget menu" id="tsd-toolbar-menu-trigger" data-toggle="menu" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><use href="../assets/icons.svg#icon-menu"></use></svg></a></div></header><div class="container container-main"><div class="col-content"><div class="tsd-page-title"><ul class="tsd-breadcrumb" aria-label="Breadcrumb"><li><a href="../modules/clients_client-s3_src.html">clients/client-s3/src</a></li><li><a href="" aria-current="page">_Error</a></li></ul><h1>Interface _Error</h1></div><section class="tsd-panel tsd-comment"><div class="tsd-comment tsd-typography"><p>Container for all error elements.</p></div></section><div class="tsd-signature"><span class="tsd-signature-keyword">interface</span> <span class="tsd-kind-interface">_Error</span> <span class="tsd-signature-symbol">{</span><br/>    <a class="tsd-kind-property" href="#code">Code</a><span class="tsd-signature-symbol">?:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">;</span><br/>    <a class="tsd-kind-property" href="#key">Key</a><span class="tsd-signature-symbol">?:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">;</span><br/>    <a class="tsd-kind-property" href="#message">Message</a><span class="tsd-signature-symbol">?:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">;</span><br/>    <a class="tsd-kind-property" href="#versionid">VersionId</a><span class="tsd-signature-symbol">?:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">;</span><br/><span class="tsd-signature-symbol">}</span></div><aside class="tsd-sources"><ul><li>Defined in <a href="https://github.ibm.com/cos-clevos/ibm-cos-sdk-js-v2/blob/30c8b814c2b1f37a7b5713dbaed657149661ecbf/clients/client-s3/src/models/models_0.ts#L3705">clients/client-s3/src/models/models_0.ts:3705</a></li></ul></aside><section class="tsd-panel-group tsd-index-group"><section class="tsd-panel tsd-index-panel"><details class="tsd-index-content tsd-accordion" open><summary class="tsd-accordion-summary tsd-index-summary"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="../assets/icons.svg#icon-chevronDown"></use></svg><h5 class="tsd-index-heading uppercase">Index</h5></summary><div class="tsd-accordion-details"><section class="tsd-index-section"><h3 class="tsd-index-heading">Properties</h3><div class="tsd-index-list"><a href="#code" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Property"><use href="../assets/icons.svg#icon-1024"></use></svg><span>Code?</span></a>
+<a href="#key" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Property"><use href="../assets/icons.svg#icon-1024"></use></svg><span>Key?</span></a>
+<a href="#message" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Property"><use href="../assets/icons.svg#icon-1024"></use></svg><span>Message?</span></a>
+<a href="#versionid" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Property"><use href="../assets/icons.svg#icon-1024"></use></svg><span>Version<wbr/>Id?</span></a>
+</div></section></div></details></section></section><details class="tsd-panel-group tsd-member-group tsd-accordion" open><summary class="tsd-accordion-summary" data-key="section-Properties"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="../assets/icons.svg#icon-chevronDown"></use></svg><h2>Properties</h2></summary><section><section class="tsd-panel tsd-member"><h3 class="tsd-anchor-link" id="code"><code class="tsd-tag">Optional</code><span>Code</span><a href="#code" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3><div class="tsd-signature"><span class="tsd-kind-property">Code</span><span class="tsd-signature-symbol">?:</span> <span class="tsd-signature-type">string</span></div><div class="tsd-comment tsd-typography"><p>The error code is a string that uniquely identifies an error condition. It is meant to be read and
+      understood by programs that detect and handle errors by type. The following is a list of Amazon S3 error
+      codes. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html">Error responses</a>.</p>
+         <ul>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> AccessDenied </p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> Access Denied</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> 403 Forbidden</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>SOAP Fault Code Prefix:</i> Client</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> AccountProblem</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> There is a problem with your Amazon Web Services account that prevents
+              the action from completing successfully. Contact Amazon Web Services Support for further assistance.</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> 403 Forbidden</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>SOAP Fault Code Prefix:</i> Client</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> AllAccessDisabled</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> All access to this Amazon S3 resource has been disabled.
+              Contact Amazon Web Services Support for further assistance.</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> 403 Forbidden</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>SOAP Fault Code Prefix:</i> Client</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> AmbiguousGrantByEmailAddress</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> The email address you provided is associated with more
+              than one account.</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> 400 Bad Request</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>SOAP Fault Code Prefix:</i> Client</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> AuthorizationHeaderMalformed</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> The authorization header you provided is invalid.</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> 400 Bad Request</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> N/A</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> BadDigest</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> The Content-MD5 you specified did not match what we
+              received.</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> 400 Bad Request</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>SOAP Fault Code Prefix:</i> Client</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> BucketAlreadyExists</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> The requested bucket name is not available. The bucket
+              namespace is shared by all users of the system. Please select a different name and try
+              again.</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> 409 Conflict</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>SOAP Fault Code Prefix:</i> Client</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> BucketAlreadyOwnedByYou</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> The bucket you tried to create already exists, and you own
+              it. Amazon S3 returns this error in all Amazon Web Services Regions except in the North Virginia Region. For legacy
+              compatibility, if you re-create an existing bucket that you already own in the North Virginia
+              Region, Amazon S3 returns 200 OK and resets the bucket access control lists (ACLs).</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Code:</i> 409 Conflict (in all Regions except the North Virginia Region)
+            </p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>SOAP Fault Code Prefix:</i> Client</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> BucketNotEmpty</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> The bucket you tried to delete is not empty.</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> 409 Conflict</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>SOAP Fault Code Prefix:</i> Client</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> CredentialsNotSupported</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> This request does not support credentials.</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> 400 Bad Request</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>SOAP Fault Code Prefix:</i> Client</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> CrossLocationLoggingProhibited</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> Cross-location logging not allowed. Buckets in one
+              geographic location cannot log information to a bucket in another location.</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> 403 Forbidden</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>SOAP Fault Code Prefix:</i> Client</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> EntityTooSmall</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> Your proposed upload is smaller than the minimum allowed
+              object size.</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> 400 Bad Request</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>SOAP Fault Code Prefix:</i> Client</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> EntityTooLarge</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> Your proposed upload exceeds the maximum allowed object
+              size.</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> 400 Bad Request</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>SOAP Fault Code Prefix:</i> Client</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> ExpiredToken</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> The provided token has expired.</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> 400 Bad Request</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>SOAP Fault Code Prefix:</i> Client</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> IllegalVersioningConfigurationException </p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> Indicates that the versioning configuration specified in
+              the request is invalid.</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> 400 Bad Request</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>SOAP Fault Code Prefix:</i> Client</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> IncompleteBody</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> You did not provide the number of bytes specified by the
+              Content-Length HTTP header</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> 400 Bad Request</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>SOAP Fault Code Prefix:</i> Client</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> IncorrectNumberOfFilesInPostRequest</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> POST requires exactly one file upload per request.</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> 400 Bad Request</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>SOAP Fault Code Prefix:</i> Client</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> InlineDataTooLarge</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> Inline data exceeds the maximum allowed size.</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> 400 Bad Request</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>SOAP Fault Code Prefix:</i> Client</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> InternalError</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> We encountered an internal error. Please try again.</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> 500 Internal Server Error</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>SOAP Fault Code Prefix:</i> Server</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> InvalidAccessKeyId</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> The Amazon Web Services access key ID you provided does not exist in our
+              records.</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> 403 Forbidden</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>SOAP Fault Code Prefix:</i> Client</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> InvalidAddressingHeader</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> You must specify the Anonymous role.</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> N/A</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>SOAP Fault Code Prefix:</i> Client</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> InvalidArgument</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> Invalid Argument</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> 400 Bad Request</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>SOAP Fault Code Prefix:</i> Client</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> InvalidBucketName</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> The specified bucket is not valid.</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> 400 Bad Request</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>SOAP Fault Code Prefix:</i> Client</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> InvalidBucketState</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> The request is not valid with the current state of the
+              bucket.</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> 409 Conflict</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>SOAP Fault Code Prefix:</i> Client</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> InvalidDigest</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> The Content-MD5 you specified is not valid.</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> 400 Bad Request</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>SOAP Fault Code Prefix:</i> Client</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> InvalidEncryptionAlgorithmError</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> The encryption request you specified is not valid. The
+              valid value is AES256.</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> 400 Bad Request</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>SOAP Fault Code Prefix:</i> Client</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> InvalidLocationConstraint</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> The specified location constraint is not valid. For more
+              information about Regions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingBucket.html#access-bucket-intro">How to Select a Region for Your
+                Buckets</a>. </p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> 400 Bad Request</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>SOAP Fault Code Prefix:</i> Client</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> InvalidObjectState</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> The action is not valid for the current state of the
+              object.</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> 403 Forbidden</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>SOAP Fault Code Prefix:</i> Client</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> InvalidPart</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> One or more of the specified parts could not be found. The
+              part might not have been uploaded, or the specified entity tag might not have matched the part's
+              entity tag.</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> 400 Bad Request</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>SOAP Fault Code Prefix:</i> Client</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> InvalidPartOrder</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> The list of parts was not in ascending order. Parts list
+              must be specified in order by part number.</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> 400 Bad Request</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>SOAP Fault Code Prefix:</i> Client</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> InvalidPayer</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> All access to this object has been disabled. Please
+              contact Amazon Web Services Support for further assistance.</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> 403 Forbidden</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>SOAP Fault Code Prefix:</i> Client</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> InvalidPolicyDocument</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> The content of the form does not meet the conditions
+              specified in the policy document.</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> 400 Bad Request</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>SOAP Fault Code Prefix:</i> Client</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> InvalidRange</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> The requested range cannot be satisfied.</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> 416 Requested Range Not Satisfiable</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>SOAP Fault Code Prefix:</i> Client</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> InvalidRequest</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> Please use <code>AWS4-HMAC-SHA256</code>.</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> 400 Bad Request</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Code:</i> N/A</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> InvalidRequest</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> SOAP requests must be made over an HTTPS
+              connection.</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> 400 Bad Request</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>SOAP Fault Code Prefix:</i> Client</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> InvalidRequest</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> Amazon S3 Transfer Acceleration is not supported for buckets
+              with non-DNS compliant names.</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> 400 Bad Request</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Code:</i> N/A</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> InvalidRequest</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> Amazon S3 Transfer Acceleration is not supported for buckets
+              with periods (.) in their names.</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> 400 Bad Request</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Code:</i> N/A</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> InvalidRequest</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> Amazon S3 Transfer Accelerate endpoint only supports virtual
+              style requests.</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> 400 Bad Request</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Code:</i> N/A</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> InvalidRequest</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> Amazon S3 Transfer Accelerate is not configured on this
+              bucket.</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> 400 Bad Request</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Code:</i> N/A</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> InvalidRequest</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> Amazon S3 Transfer Accelerate is disabled on this
+              bucket.</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> 400 Bad Request</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Code:</i> N/A</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> InvalidRequest</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> Amazon S3 Transfer Acceleration is not supported on this
+              bucket. Contact Amazon Web Services Support for more information.</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> 400 Bad Request</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Code:</i> N/A</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> InvalidRequest</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> Amazon S3 Transfer Acceleration cannot be enabled on this
+              bucket. Contact Amazon Web Services Support for more information.</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> 400 Bad Request</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Code:</i> N/A</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> InvalidSecurity</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> The provided security credentials are not valid.</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> 403 Forbidden</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>SOAP Fault Code Prefix:</i> Client</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> InvalidSOAPRequest</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> The SOAP request body is invalid.</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> 400 Bad Request</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>SOAP Fault Code Prefix:</i> Client</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> InvalidStorageClass</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> The storage class you specified is not valid.</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> 400 Bad Request</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>SOAP Fault Code Prefix:</i> Client</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> InvalidTargetBucketForLogging</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> The target bucket for logging does not exist, is not owned
+              by you, or does not have the appropriate grants for the log-delivery group. </p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> 400 Bad Request</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>SOAP Fault Code Prefix:</i> Client</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> InvalidToken</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> The provided token is malformed or otherwise
+              invalid.</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> 400 Bad Request</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>SOAP Fault Code Prefix:</i> Client</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> InvalidURI</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> Couldn't parse the specified URI.</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> 400 Bad Request</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>SOAP Fault Code Prefix:</i> Client</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> KeyTooLongError</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> Your key is too long.</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> 400 Bad Request</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>SOAP Fault Code Prefix:</i> Client</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> MalformedACLError</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> The XML you provided was not well-formed or did not
+              validate against our published schema.</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> 400 Bad Request</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>SOAP Fault Code Prefix:</i> Client</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> MalformedPOSTRequest </p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> The body of your POST request is not well-formed
+              multipart/form-data.</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> 400 Bad Request</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>SOAP Fault Code Prefix:</i> Client</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> MalformedXML</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> This happens when the user sends malformed XML (XML that
+              doesn't conform to the published XSD) for the configuration. The error message is, "The XML you
+              provided was not well-formed or did not validate against our published schema." </p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> 400 Bad Request</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>SOAP Fault Code Prefix:</i> Client</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> MaxMessageLengthExceeded</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> Your request was too big.</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> 400 Bad Request</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>SOAP Fault Code Prefix:</i> Client</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> MaxPostPreDataLengthExceededError</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> Your POST request fields preceding the upload file were
+              too large.</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> 400 Bad Request</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>SOAP Fault Code Prefix:</i> Client</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> MetadataTooLarge</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> Your metadata headers exceed the maximum allowed metadata
+              size.</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> 400 Bad Request</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>SOAP Fault Code Prefix:</i> Client</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> MethodNotAllowed</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> The specified method is not allowed against this
+              resource.</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> 405 Method Not Allowed</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>SOAP Fault Code Prefix:</i> Client</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> MissingAttachment</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> A SOAP attachment was expected, but none were
+              found.</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> N/A</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>SOAP Fault Code Prefix:</i> Client</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> MissingContentLength</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> You must provide the Content-Length HTTP header.</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> 411 Length Required</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>SOAP Fault Code Prefix:</i> Client</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> MissingRequestBodyError</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> This happens when the user sends an empty XML document as
+              a request. The error message is, "Request body is empty." </p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> 400 Bad Request</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>SOAP Fault Code Prefix:</i> Client</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> MissingSecurityElement</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> The SOAP 1.1 request is missing a security element.</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> 400 Bad Request</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>SOAP Fault Code Prefix:</i> Client</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> MissingSecurityHeader</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> Your request is missing a required header.</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> 400 Bad Request</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>SOAP Fault Code Prefix:</i> Client</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> NoLoggingStatusForKey</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> There is no such thing as a logging status subresource for
+              a key.</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> 400 Bad Request</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>SOAP Fault Code Prefix:</i> Client</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> NoSuchBucket</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> The specified bucket does not exist.</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> 404 Not Found</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>SOAP Fault Code Prefix:</i> Client</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> NoSuchBucketPolicy</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> The specified bucket does not have a bucket policy.</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> 404 Not Found</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>SOAP Fault Code Prefix:</i> Client</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> NoSuchKey</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> The specified key does not exist.</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> 404 Not Found</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>SOAP Fault Code Prefix:</i> Client</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> NoSuchLifecycleConfiguration</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> The lifecycle configuration does not exist. </p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> 404 Not Found</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>SOAP Fault Code Prefix:</i> Client</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> NoSuchUpload</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> The specified multipart upload does not exist. The upload
+              ID might be invalid, or the multipart upload might have been aborted or completed.</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> 404 Not Found</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>SOAP Fault Code Prefix:</i> Client</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> NoSuchVersion </p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> Indicates that the version ID specified in the request
+              does not match an existing version.</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> 404 Not Found</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>SOAP Fault Code Prefix:</i> Client</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> NotImplemented</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> A header you provided implies functionality that is not
+              implemented.</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> 501 Not Implemented</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>SOAP Fault Code Prefix:</i> Server</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> NotSignedUp</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> Your account is not signed up for the Amazon S3 service. You
+              must sign up before you can use Amazon S3. You can sign up at the following URL: <a href="http://aws.amazon.com/s3">Amazon S3</a>
+                     </p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> 403 Forbidden</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>SOAP Fault Code Prefix:</i> Client</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> OperationAborted</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> A conflicting conditional action is currently in progress
+              against this resource. Try again.</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> 409 Conflict</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>SOAP Fault Code Prefix:</i> Client</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> PermanentRedirect</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> The bucket you are attempting to access must be addressed
+              using the specified endpoint. Send all future requests to this endpoint.</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> 301 Moved Permanently</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>SOAP Fault Code Prefix:</i> Client</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> PreconditionFailed</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> At least one of the preconditions you specified did not
+              hold.</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> 412 Precondition Failed</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>SOAP Fault Code Prefix:</i> Client</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> Redirect</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> Temporary redirect.</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> 307 Moved Temporarily</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>SOAP Fault Code Prefix:</i> Client</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> RestoreAlreadyInProgress</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> Object restore is already in progress.</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> 409 Conflict</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>SOAP Fault Code Prefix:</i> Client</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> RequestIsNotMultiPartContent</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> Bucket POST must be of the enclosure-type
+              multipart/form-data.</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> 400 Bad Request</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>SOAP Fault Code Prefix:</i> Client</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> RequestTimeout</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> Your socket connection to the server was not read from or
+              written to within the timeout period.</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> 400 Bad Request</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>SOAP Fault Code Prefix:</i> Client</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> RequestTimeTooSkewed</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> The difference between the request time and the server's
+              time is too large.</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> 403 Forbidden</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>SOAP Fault Code Prefix:</i> Client</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> RequestTorrentOfBucketError</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> Requesting the torrent file of a bucket is not
+              permitted.</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> 400 Bad Request</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>SOAP Fault Code Prefix:</i> Client</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> SignatureDoesNotMatch</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> The request signature we calculated does not match the
+              signature you provided. Check your Amazon Web Services secret access key and signing method. For more
+              information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html">REST Authentication</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/SOAPAuthentication.html">SOAP Authentication</a> for
+              details.</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> 403 Forbidden</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>SOAP Fault Code Prefix:</i> Client</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> ServiceUnavailable</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> Service is unable to handle request.</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> 503 Service Unavailable</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>SOAP Fault Code Prefix:</i> Server</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> SlowDown</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> Reduce your request rate.</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> 503 Slow Down</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>SOAP Fault Code Prefix:</i> Server</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> TemporaryRedirect</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> You are being redirected to the bucket while DNS
+              updates.</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> 307 Moved Temporarily</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>SOAP Fault Code Prefix:</i> Client</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> TokenRefreshRequired</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> The provided token must be refreshed.</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> 400 Bad Request</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>SOAP Fault Code Prefix:</i> Client</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> TooManyBuckets</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> You have attempted to create more buckets than
+              allowed.</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> 400 Bad Request</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>SOAP Fault Code Prefix:</i> Client</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> UnexpectedContent</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> This request does not support content.</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> 400 Bad Request</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>SOAP Fault Code Prefix:</i> Client</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> UnresolvableGrantByEmailAddress</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> The email address you provided does not match any account
+              on record.</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> 400 Bad Request</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>SOAP Fault Code Prefix:</i> Client</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <ul>
+                  <li>
+                     <p>
+                        <i>Code:</i> UserKeyMustBeSpecified</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>Description:</i> The bucket POST must contain the specified field name. If
+              it is specified, check the order of the fields.</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>HTTP Status Code:</i> 400 Bad Request</p>
+                  </li>
+                  <li>
+                     <p>
+                        <i>SOAP Fault Code Prefix:</i> Client</p>
+                  </li>
+               </ul>
+            </li>
+         </ul>
+         <p></p></div><aside class="tsd-sources"><ul><li>Defined in <a href="https://github.ibm.com/cos-clevos/ibm-cos-sdk-js-v2/blob/30c8b814c2b1f37a7b5713dbaed657149661ecbf/clients/client-s3/src/models/models_0.ts#L5555">clients/client-s3/src/models/models_0.ts:5555</a></li></ul></aside></section><section class="tsd-panel tsd-member"><h3 class="tsd-anchor-link" id="key"><code class="tsd-tag">Optional</code><span>Key</span><a href="#key" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3><div class="tsd-signature"><span class="tsd-kind-property">Key</span><span class="tsd-signature-symbol">?:</span> <span class="tsd-signature-type">string</span></div><div class="tsd-comment tsd-typography"><p>The error key.</p></div><aside class="tsd-sources"><ul><li>Defined in <a href="https://github.ibm.com/cos-clevos/ibm-cos-sdk-js-v2/blob/30c8b814c2b1f37a7b5713dbaed657149661ecbf/clients/client-s3/src/models/models_0.ts#L3710">clients/client-s3/src/models/models_0.ts:3710</a></li></ul></aside></section><section class="tsd-panel tsd-member"><h3 class="tsd-anchor-link" id="message"><code class="tsd-tag">Optional</code><span>Message</span><a href="#message" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3><div class="tsd-signature"><span class="tsd-kind-property">Message</span><span class="tsd-signature-symbol">?:</span> <span class="tsd-signature-type">string</span></div><div class="tsd-comment tsd-typography"><p>The error message contains a generic description of the error condition in English. It is intended
+      for a human audience. Simple programs display the message directly to the end user if they encounter an
+      error condition they don't know how or don't care to handle. Sophisticated programs with more exhaustive
+      error handling and proper internationalization are more likely to ignore the error message.</p></div><aside class="tsd-sources"><ul><li>Defined in <a href="https://github.ibm.com/cos-clevos/ibm-cos-sdk-js-v2/blob/30c8b814c2b1f37a7b5713dbaed657149661ecbf/clients/client-s3/src/models/models_0.ts#L5564">clients/client-s3/src/models/models_0.ts:5564</a></li></ul></aside></section><section class="tsd-panel tsd-member"><h3 class="tsd-anchor-link" id="versionid"><code class="tsd-tag">Optional</code><span>Version<wbr/>Id</span><a href="#versionid" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3><div class="tsd-signature"><span class="tsd-kind-property">VersionId</span><span class="tsd-signature-symbol">?:</span> <span class="tsd-signature-type">string</span></div><div class="tsd-comment tsd-typography"><p>The version ID of the error.</p>
+         <note>
+            <p>This functionality is not supported for directory buckets.</p>
+         </note></div><aside class="tsd-sources"><ul><li>Defined in <a href="https://github.ibm.com/cos-clevos/ibm-cos-sdk-js-v2/blob/30c8b814c2b1f37a7b5713dbaed657149661ecbf/clients/client-s3/src/models/models_0.ts#L3719">clients/client-s3/src/models/models_0.ts:3719</a></li></ul></aside></section></section></details></div><div class="col-sidebar"><div class="page-menu"><div class="tsd-navigation settings"><details class="tsd-accordion"><summary class="tsd-accordion-summary"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="../assets/icons.svg#icon-chevronDown"></use></svg><h3>Settings</h3></summary><div class="tsd-accordion-details"><div class="tsd-filter-visibility"><span class="settings-label">Member Visibility</span><ul id="tsd-filter-options"><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-inherited" name="inherited" checked/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Inherited</span></label></li><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-external" name="external"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>External</span></label></li></ul></div><div class="tsd-theme-toggle"><label class="settings-label" for="tsd-theme">Theme</label><select id="tsd-theme"><option value="os">OS</option><option value="light">Light</option><option value="dark">Dark</option></select></div></div></details></div><details open class="tsd-accordion tsd-page-navigation"><summary class="tsd-accordion-summary"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="../assets/icons.svg#icon-chevronDown"></use></svg><h3>On This Page</h3></summary><div class="tsd-accordion-details"><details open class="tsd-accordion tsd-page-navigation-section"><summary class="tsd-accordion-summary" data-key="section-Properties"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="../assets/icons.svg#icon-chevronDown"></use></svg>Properties</summary><div><a href="#code"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Property"><use href="../assets/icons.svg#icon-1024"></use></svg><span>Code</span></a><a href="#key"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Property"><use href="../assets/icons.svg#icon-1024"></use></svg><span>Key</span></a><a href="#message"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Property"><use href="../assets/icons.svg#icon-1024"></use></svg><span>Message</span></a><a href="#versionid"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Property"><use href="../assets/icons.svg#icon-1024"></use></svg><span>Version<wbr/>Id</span></a></div></details></div></details></div><div class="site-menu"><nav class="tsd-navigation"><a href="../modules.html">IBM COS SDK for JavaScript V2</a><ul class="tsd-small-nested-navigation" id="tsd-nav-container"><li>Loading...</li></ul></nav></div></div></div><footer></footer><div class="overlay"></div></body></html>
