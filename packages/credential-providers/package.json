@@ -1,6 +1,6 @@
 {
   "name": "@ibm-cos/credential-providers",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "A collection of credential providers, without requiring service clients like STS, Cognito",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",

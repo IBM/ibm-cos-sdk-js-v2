@@ -1,6 +1,6 @@
 {
   "name": "@ibm-cos/credential-provider-ini-ibm",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "IBM IAM INI credential provider",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",

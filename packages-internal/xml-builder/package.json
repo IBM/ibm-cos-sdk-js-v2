@@ -1,6 +1,6 @@
 {
   "name": "@ibm-cos/xml-builder",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "XML builder for the AWS SDK",
   "dependencies": {
     "@smithy/types": "^4.12.0",

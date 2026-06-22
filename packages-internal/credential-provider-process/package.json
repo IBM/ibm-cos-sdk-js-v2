@@ -1,6 +1,6 @@
 {
   "name": "@ibm-cos/credential-provider-process",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "AWS credential provider that sources credential_process from ~/.aws/credentials and ~/.aws/config",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",

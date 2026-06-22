@@ -1,6 +1,6 @@
 {
   "name": "@ibm-cos/types-ibm",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Custom types and interfaces for the IBM COS SDK",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",

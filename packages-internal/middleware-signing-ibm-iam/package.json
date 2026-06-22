@@ -1,6 +1,6 @@
 {
   "name": "@ibm-cos/middleware-signing-ibm-iam",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "IBM IAM signing middleware for IBM COS SDK",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",

@@ -1,17 +1,7 @@
 # IBM Cloud Object Storage - Node.js SDK v2
 
-Welcome to the Node.js SDK v2 Beta. This release is an early version of our SDK and is intended for testing and feedback purposes.
-
 This package allows Node.js developers to write software that interacts with [IBM Cloud Object Storage](https://www.ibm.com/cloud/object-storage).
 It is a fork of the [AWS SDK for JS v3](https://github.com/aws/aws-sdk-js-v3) library and can stand as a drop-in replacement for applications that use S3-compatible APIs and do not depend on other AWS services.
-
-***
-
-## Important Notes
-
-This is a **beta release** - APIs may change before the GA release, and use in production environments is **not recommended** at this time.
-
-***
 
 ## Feedback & Issue Reporting
 
@@ -30,6 +20,7 @@ Language versions will be deprecated on the published schedule without additiona
 ## Documentation
 
 * [Code Examples](./examples/)
+* [NodeJS API reference documentation](https://ibm.github.io/ibm-cos-sdk-js-v2/)
 * [REST API reference documentation](https://cloud.ibm.com/docs/cloud-object-storage/api-reference/about-api.html?group=api-reference)
 
 For release notes, see the [CHANGELOG](CHANGELOG.md).

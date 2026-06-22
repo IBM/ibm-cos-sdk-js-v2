@@ -1,7 +1,7 @@
 {
   "name": "ibm-cos-sdk-js-v2",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "IBM COS SDK for JavaScript",
   "main": "index.js",
   "scripts": {

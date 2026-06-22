@@ -1,6 +1,6 @@
 {
   "name": "@ibm-cos/core",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Core functions & classes shared by multiple IBM COS SDK clients.",
   "scripts": {
     "build": "yarn lint && concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
