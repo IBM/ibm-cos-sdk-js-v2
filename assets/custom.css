@@ -1,0 +1,38 @@
+:root {
+    --color-primary: #0073bb;
+    /* IBM Blue */
+    --color-link: #0073bb;
+}
+
+header {
+    background-color: #0073bb !important;
+    color: white !important;
+}
+
+header a {
+    color: white !important;
+}
+
+.tsd-navigation a:hover,
+.tsd-navigation a.current {
+    border-left-color: #0073bb !important;
+}
+
+.tsd-index-list a {
+    color: #0073bb !important;
+}
+
+/* Replicating v1 alert styles if they appear in TSDoc */
+.alert-info {
+    border: 1px solid #0073bb;
+    background-color: #f1faff;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.alert-warning {
+    border: 1px solid #d13212;
+    background-color: #fdf3f1;
+    padding: 10px;
+    margin: 10px 0;
+}
