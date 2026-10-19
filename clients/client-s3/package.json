@@ -1,7 +1,7 @@
 {
   "name": "ibm-cos-sdk-v2",
   "description": "IBM COS SDK for JavaScript S3 Client for Node.js, Browser and React Native",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "scripts": {
     "build": "concurrently 'yarn:build:es' 'yarn:build:types' && yarn build:cjs",
     "build:cjs": "node ../../scripts/compilation/inline client-s3",
@@ -96,7 +96,7 @@
     "@smithy/util-waiter": "^4.2.8",
     "bowser": "^2.11.0",
     "fast-xml-parser": "5.7.3",
-    "ibm-cloud-sdk-core": "5.4.12",
+    "ibm-cloud-sdk-core": "5.9.1",
     "tslib": "^2.6.2"
   },
   "devDependencies": {

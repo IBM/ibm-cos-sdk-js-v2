@@ -1,6 +1,6 @@
 {
   "name": "ibm-cos-sdk-js-v2-examples",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "IBM Cloud Object Storage SDK v2 JavaScript Examples",
   "main": "index.js",
   "scripts": {

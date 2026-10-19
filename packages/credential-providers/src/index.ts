@@ -5,6 +5,7 @@ export { fromHttp, FromHttpOptions, HttpProviderCredentials } from "@ibm-cos/cre
 export * from "./fromIam";
 export * from "./fromIni";
 export * from "./fromInstanceMetadata";
+export * from "./fromJsonIbm";
 export * from "./fromNodeProviderChain";
 export * from "./fromProcess";
 

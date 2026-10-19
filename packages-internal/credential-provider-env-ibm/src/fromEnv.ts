@@ -1,5 +1,6 @@
 import { AwsCredentialIdentityProvider } from "@smithy/types";
 import { CredentialProviderOptions } from "@ibm-cos/types";
+import { CredentialsProviderError } from "@smithy/property-provider";
 
 export interface FromEnvInit extends CredentialProviderOptions { }
 
@@ -36,5 +37,8 @@ export const ibmFromEnv =
           };
       }
 
-      throw new Error("Unable to find IBM environment variable credentials.");
+      throw new CredentialsProviderError("Unable to find IBM environment variable credentials.", {
+        tryNextLink: true,
+        logger: init?.logger,
+      });
 };

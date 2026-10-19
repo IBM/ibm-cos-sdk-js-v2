@@ -1,9 +1,10 @@
 import { ENV_KEY, ENV_SECRET, fromEnv } from "@ibm-cos/credential-provider-env";
 import type { FromHttpOptions } from "@ibm-cos/credential-provider-http";
 import type { FromIniInit } from "@ibm-cos/credential-provider-ini";
+import type { FromJsonIbmInit } from "@ibm-cos/credential-provider-json-ibm";
 import type { FromProcessInit } from "@ibm-cos/credential-provider-process";
 
-export type DefaultProviderInit = FromIniInit & FromHttpOptions & RemoteProviderInit & FromProcessInit;
+export type DefaultProviderInit = FromIniInit & FromHttpOptions & RemoteProviderInit & FromProcessInit & FromJsonIbmInit;
 
 import type { AwsIdentityProperties } from "@ibm-cos/types";
 import type { RemoteProviderInit } from "@smithy/credential-provider-imds";
@@ -87,6 +88,12 @@ export const defaultProvider = (init: DefaultProviderInit = {}): MemoizedRuntime
         }
         init.logger?.debug("@ibm-cos/credential-provider-node - defaultProvider::fromEnv");
         return fromEnv(init)();
+      },
+
+      async () => {
+        init.logger?.debug("@ibm-cos/credential-provider-node - defaultProvider::fromJson");
+        const { fromJsonIbm } = await import("@ibm-cos/credential-provider-json-ibm");
+        return fromJsonIbm(init)();
       },
 
       async (awsIdentityProperties?: AwsIdentityProperties) => {

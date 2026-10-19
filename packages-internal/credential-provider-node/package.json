@@ -1,6 +1,6 @@
 {
   "name": "@ibm-cos/credential-provider-node",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "AWS credential provider that sources credentials from a Node.JS environment. ",
   "engines": {
     "node": ">=20.0.0"
@@ -43,7 +43,7 @@
     "tslib": "^2.6.2"
   },
   "devDependencies": {
-    "@tsconfig/recommended": "1.0.1",
+    "@tsconfig/recommended": "1.0.13",
     "@types/node": "^20.14.8",
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",

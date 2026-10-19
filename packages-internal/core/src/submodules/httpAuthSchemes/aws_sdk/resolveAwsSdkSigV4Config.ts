@@ -1,5 +1,6 @@
 import { setCredentialFeature } from "@ibm-cos/core/client";
 import type { AttributedAwsCredentialIdentity, MergeFunctions } from "@ibm-cos/types";
+import { IbmAwsCredentialIdentity } from "@ibm-cos/types-ibm";
 import {
   doesIdentityRequireRefresh,
   isIdentityExpired,
@@ -26,8 +27,14 @@ import type {
 export interface AwsSdkSigV4AuthInputConfig {
   /**
    * The credentials used to sign requests.
+   *
+   * Accepts:
+   * - A full `AwsCredentialIdentity` object (HMAC / access-key credentials)
+   * - An `AwsCredentialIdentityProvider` function
+   * - An `IbmCredentialInput` object `{ apiKey, serviceInstanceId, authEndpoint? }`
+   *   for IBM IAM authentication (no `accessKeyId` / `secretAccessKey` required)
    */
-  credentials?: AwsCredentialIdentity | AwsCredentialIdentityProvider;
+  credentials?: AwsCredentialIdentity | AwsCredentialIdentityProvider | IbmAwsCredentialIdentity;
 
   /**
    * The signer to use when signing requests.

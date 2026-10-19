@@ -1,6 +1,6 @@
 {
   "name": "@ibm-cos/lib-storage",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Storage higher order operation",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
@@ -43,7 +43,7 @@
   },
   "devDependencies": {
     "@smithy/types": "^4.12.0",
-    "@tsconfig/recommended": "1.0.1",
+    "@tsconfig/recommended": "1.0.13",
     "@types/node": "^20.14.8",
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",
